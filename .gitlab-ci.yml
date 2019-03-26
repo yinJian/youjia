@@ -1,0 +1,26 @@
+# requiring the environment of NodeJS 8.9.x LTS (carbon)
+image: node:8
+
+# add 'node_modules' to cache for speeding up builds
+cache:
+  paths:
+    - node_modules/ # Node modules and dependencies
+
+before_script:
+  - npm install --save --registry=https://registry.npm.taobao.org # add any requested plugins in book.json
+
+# the 'pages' job will deploy and build your site to the 'public' path
+pages:
+  stage: deploy
+  script:
+    - unset CI
+    - npm run build # build to public path
+    - mv dist public
+  artifacts:
+    paths:
+      - public
+    name: public
+  only:
+    - staging
+  tags:
+    - pages

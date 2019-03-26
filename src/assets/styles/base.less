@@ -1,0 +1,91 @@
+ul,li{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+/**
+ * [常用色彩]
+ */
+@bg-default: #F8F8F8;
+@bg-white: #FFFFFF;
+@bg-orange: #E49A2D;
+
+@text-color-default: #080808;
+@text-color-white: #FFFFFF;
+@text-color-black: #000000;
+@text-color-gray: #A7A7A7;
+@text-color-input: #28354C;
+@text-color-placeholder: #C4C5CE;
+
+@border-default: #EBECF1;
+
+/**
+ * [常用Mixin]
+ */
+
+//超出省略号
+.text-ellipsis () {
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+
+//圆角
+.border-radius (@radius) {
+  -webkit-border-radius: @radius;
+    -moz-border-radius: @radius;
+      border-radius: @radius;
+}
+
+//阴影
+.box-shadow (@h, @v, @blur, @spread, @color) {
+  box-shadow: @h @v @blur @spread @color;
+}
+
+//按钮公共样式
+.button-orange () {
+  background: #f39800;
+  color: @text-color-white;
+  display: block;
+  outline: none;
+  border: none;
+  font-size: 0.48rem;
+
+  &:active {
+    background: #ca8a2a;
+  }
+
+  .border-radius(0.1333rem);
+}
+
+//订单相关按钮
+.button-order () {
+  width: 1.8666rem;
+  height: 0.8rem;
+  font-size: 0.32rem;
+  outline: none;
+  background: @bg-white;
+
+  &:active {
+    background: #F7F7F7;
+  }
+
+  .border-radius(0.4rem);
+}
+.order-title{
+  width: 100%;
+  height: 1.2rem;
+  line-height: 1.12rem;
+  display: flex;
+  text-align: center;
+  background: #E49A2D;
+  font-size: 0.5rem;
+  color: @text-color-white;
+}
+
+.fll{
+  float: left;
+}
+.flr{
+  float: right;
+}
